@@ -1,0 +1,38 @@
+---
+import { CollectionEntry, getCollection, getEntryBySlug } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PlaygroundWrapper from "@components/playground/Wrapper";
+import type { ExportData } from "src/schema";
+
+export const getStaticPaths = async () => {
+    const analysis = await getCollection("analysis");
+    return analysis.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+};
+
+const { slug } = Astro.params;
+let exports: ExportData[] = [];
+if (slug) {
+    const entry = await getEntryBySlug("analysis", slug);
+    if (entry) {
+        let entryExports = entry.data.exports;
+        if (entryExports && entryExports.length > 0) {
+            exports = entryExports;
+        }
+    }
+}
+---
+
+<BaseLayout>
+    {
+        exports.length > 0 ? (
+            <div>
+                <PlaygroundWrapper exports={exports} client:only="react" />
+            </div>
+        ) : (
+            <h2>{slug} exports no data</h2>
+        )
+    }
+</BaseLayout>

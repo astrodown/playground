@@ -1,0 +1,16 @@
+---
+title: "R"
+author: "RStudio"
+---
+
+hello world
+
+```{r}
+plot(iris)
+```
+
+```{r}
+library(dygraphs)
+dygraph(nhtemp, main = "New Haven Temperatures") %>%
+  dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01"))
+```

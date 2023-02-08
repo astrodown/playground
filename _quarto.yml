@@ -1,0 +1,13 @@
+project:
+  output-dir: src/content
+  post-render:
+    - scripts/post-render.py
+  render:
+    - analysis/**/*.qmd
+    - data/**/*.qmd
+
+freeze: auto
+
+format:
+  hugo:
+    toc: false

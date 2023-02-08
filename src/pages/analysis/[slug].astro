@@ -1,0 +1,18 @@
+---
+import { getCollection } from "astro:content";
+import Analysis from "../../layouts/Analysis.astro";
+
+export const prerender = true;
+
+export const getStaticPaths = async () => {
+    const analysis = await getCollection("analysis");
+    return analysis.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+};
+
+const { entry } = Astro.props;
+---
+
+<Analysis entry={entry} />

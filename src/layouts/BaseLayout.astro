@@ -1,0 +1,14 @@
+---
+import SiteHeader from "@components/SiteHeader.astro";
+import BaseHead from "../components/BaseHead.astro";
+---
+
+<html lang="en">
+    <BaseHead />
+    <body>
+        <SiteHeader />
+        <main class="max-w-6xl mx-auto">
+            <slot />
+        </main>
+    </body>
+</html>

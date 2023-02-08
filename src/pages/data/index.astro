@@ -1,0 +1,20 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+const data = await getCollection("data");
+---
+
+<BaseLayout>
+    <h1>Datasets</h1>
+    <div class="grid grid-cols-3 gap-3">
+        {
+            data.map((entry) => (
+                <a href={`/data/${entry.slug}`}>
+                    <div class="h-40 rounded-lg border shadow-lg border-blue-300 flex justify-center items-center hover:bg-slate-800 hover:text-white transition-all duration-200">
+                        {entry.data.title}
+                    </div>
+                </a>
+            ))
+        }
+    </div>
+</BaseLayout>

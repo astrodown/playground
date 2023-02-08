@@ -1,0 +1,21 @@
+---
+import Link from "@components/shared/Link.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+const analysis = await getCollection("analysis");
+---
+
+<BaseLayout>
+    <h1>Analysis</h1>
+    <ul>
+        {
+            analysis.map((entry) => (
+                <li>
+                    <Link href={`/analysis/${entry.slug}`}>
+                        {entry.data.title}
+                    </Link>
+                </li>
+            ))
+        }
+    </ul>
+</BaseLayout>
