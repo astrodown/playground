@@ -22,4 +22,5 @@ pnpm-debug.log*
 
 /.quarto/
 _freeze/
-ipynb_checkpoints/
+notebooks
+.ipynb_checkpoints/
