@@ -2,8 +2,9 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const analysis = (await getCollection("analysis")).filter(
-    (entry) => entry.data.exports
+const analysis = await getCollection(
+    "analysis",
+    (entry) => entry.data.exports.length > 0
 );
 ---
 

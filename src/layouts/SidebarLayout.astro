@@ -7,12 +7,12 @@ interface Props {
 const { sidebarUseProse = false, mainUseProse = true } = Astro.props;
 ---
 
-<div class="grid grid-cols-4 relative">
+<div class="grid grid-cols-4 relative gap-4">
     <div
         class:list={[
             "col-span-1",
             { prose: sidebarUseProse },
-            "h-screen sticky top-0",
+            "h-screen sticky top-[80px] z-20",
         ]}
     >
         <slot name="sidebar" />

@@ -1,13 +1,28 @@
 ---
 import SiteHeader from "@components/SiteHeader.astro";
 import BaseHead from "../components/BaseHead.astro";
+
+interface Props {
+    class?: string;
+}
+
+let { class: className } = Astro.props;
+if (!className) {
+    className = "max-w-6xl mx-auto";
+}
 ---
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
 
 <html lang="en">
     <BaseHead />
     <body>
         <SiteHeader />
-        <main class="max-w-6xl mx-auto">
+        <main class={className}>
             <slot />
         </main>
     </body>
