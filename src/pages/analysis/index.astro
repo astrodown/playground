@@ -1,4 +1,5 @@
 ---
+import Badge from "@components/shared/Badge.astro";
 import Link from "@components/shared/Link.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
@@ -6,16 +7,42 @@ const analysis = await getCollection("analysis");
 ---
 
 <BaseLayout>
-    <h1>Analysis</h1>
-    <ul>
+    <div class="analysis-list flex flex-col max-w-4xl mx-auto gap-2">
         {
             analysis.map((entry) => (
-                <li>
-                    <Link href={`/analysis/${entry.slug}`}>
-                        {entry.data.title}
-                    </Link>
-                </li>
+                <>
+                    <article class="mb-6 transition border-b border-blue-600">
+                        <h3 class="mb-2 text-xl font-bold leading-tight sm:text-2xl font-heading">
+                            <a
+                                href={`/analysis/${entry.slug}`}
+                                class="hover:text-primary dark:hover:text-blue-700  transition ease-in duration-200"
+                            >
+                                {entry.data.title}
+                            </a>
+                        </h3>
+                        <p class="text-slate-400 text-lg">
+                            {entry.data.description || entry.body.slice(0, 100)}
+                        </p>
+                        <div class="flex items-center justify-between my-2">
+                            <div class="tags">
+                                {entry.data.tags.map((tag) => (
+                                    <Badge class="bg-indigo-100 text-indigo-800">
+                                        {tag}
+                                    </Badge>
+                                ))}
+                            </div>
+
+                            {entry.data.exports.length > 0 && (
+                                <a href={`/playground/${entry.slug}`}>
+                                    <Badge class="bg-blue-200 text-blue-800">
+                                        Playground
+                                    </Badge>
+                                </a>
+                            )}
+                        </div>
+                    </article>
+                </>
             ))
         }
-    </ul>
+    </div>
 </BaseLayout>

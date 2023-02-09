@@ -18,16 +18,36 @@ const ExportData = z.union([
 	}),
 ]);
 
+const Relationship = z.union([
+	z.string(),
+	z.object({
+		id: z.string(),
+		label: z.string().optional(),
+	}),
+]);
+
 export type ExportData = z.infer<typeof ExportData>;
 
 export const analysisSchema = z.object({
 	title: z.string(),
 	author: z.string(),
-	exports: z.array(ExportData).optional(),
+	id: z.string().optional(),
+	label: z.string().optional(),
+	date: z
+		.string()
+		.transform((str) => new Date(str))
+		.optional(),
+	description: z.string().optional(),
+	tags: z.array(z.string()).default([]),
+	exports: z.array(ExportData).default([]),
+	relationships: z.array(Relationship).default([]),
 });
 
 export const dataSchema = z.object({
 	title: z.string(),
+	id: z.string().optional(),
+	label: z.string().optional(),
 	previewURL: z.string().optional(),
 	description: z.string().optional(),
+	relationships: z.array(Relationship).default([]),
 });

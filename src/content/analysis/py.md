@@ -1,8 +1,12 @@
 ---
 title: "Analysis of something else"
+id: something-else
+label: "Some example R code"
 author: Qiushi Yan
 date: "2021-05-31"
-tags: ["model"]
+description: |
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam tempore ad aut, deleniti cupiditate ullam asperiores at magni praesentium eaque.
+tags: ["Bayesian"]
 exports:
     - name: df
       type: pandas
@@ -11,6 +15,11 @@ exports:
     - name: num
       type: raw
       value: 123
+relationships:
+  - id: iris
+    label: "produces"
+  - id: marketing.md
+    label: "comes before"
 ---
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
@@ -46,7 +55,7 @@ sns.relplot(
 )
 ```
 
-    <seaborn.axisgrid.FacetGrid at 0x1082039d0>
+    <seaborn.axisgrid.FacetGrid at 0x16b491160>
 
 <img src="/analysis/py_files/figure-markdown_strict/cell-3-output-2.png" width="1025" height="464" />
 

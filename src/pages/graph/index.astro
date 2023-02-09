@@ -1,8 +1,11 @@
 ---
-import Tmp from "@components/graph/tmp";
+import Graph from "@components/graph/Graph";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { getGraphData } from "@lib/graph";
+
+const graphData = await getGraphData();
 ---
 
 <BaseLayout>
-    <Tmp client:only="react" />
+    <Graph data={graphData} client:only="react" />
 </BaseLayout>
