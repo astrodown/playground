@@ -22,11 +22,6 @@ relationships:
     label: "comes before"
 ---
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
-
 # Introduction
 
 ``` python
@@ -55,9 +50,9 @@ sns.relplot(
 )
 ```
 
-    <seaborn.axisgrid.FacetGrid at 0x16b491160>
+    <seaborn.axisgrid.FacetGrid at 0x168d66280>
 
-<img src="/analysis/py_files/figure-markdown_strict/cell-3-output-2.png" width="1025" height="464" />
+![](/analysis/python/py_files/figure-commonmark/cell-3-output-2.png)
 
 # Conclusion
 

@@ -13,4 +13,4 @@ Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic neque sapiente dol
 plot(cars)
 ```
 
-<img src="/analysis/marketing.markdown_strict_files/figure-markdown_strict/unnamed-chunk-1-1.png" width="768" />
+![](/analysis/marketing_files/figure-commonmark/unnamed-chunk-1-1.png)

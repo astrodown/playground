@@ -1,0 +1,18 @@
+---
+title: diamonds
+id: diamond-test
+format:
+    hugo:
+        toc: false
+---
+
+``` r
+library(ggplot2)
+
+diamonds |>
+    dplyr::slice_sample(n = 1000) |>
+    ggplot() +
+    geom_point(aes(x = carat, y = price, color = cut))
+```
+
+<img src="/data/diamonds/diamond-test.markdown_strict_files/figure-markdown_strict/unnamed-chunk-1-1.png" width="768" />

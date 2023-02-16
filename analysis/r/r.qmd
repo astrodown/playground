@@ -12,6 +12,9 @@ relationships:
     label: "model on"
   - id: something-else
     label: "comes after"
+format:
+  hugo:
+    toc: false
 ---
 
 hello world

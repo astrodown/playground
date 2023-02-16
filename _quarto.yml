@@ -9,5 +9,6 @@ project:
 freeze: auto
 
 format:
-  hugo:
-    toc: false
+  gfm:
+    variant: +yaml_metadata_block
+    wrap: none # prevent markdown image link from being wrapped so that post render script cannot fix the links

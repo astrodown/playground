@@ -1,7 +1,9 @@
 ---
 title: iris data
 id: iris
-label: good old iris data
+format:
+    hugo:
+        toc: false
 ---
 
 # Overview
