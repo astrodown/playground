@@ -24,3 +24,5 @@ pnpm-debug.log*
 _freeze/
 notebooks
 .ipynb_checkpoints/
+__pycache__/
+*.pyc

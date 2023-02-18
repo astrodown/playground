@@ -13,18 +13,18 @@ repos:
             args: ["--maxkb=200"]
           - id: end-of-file-fixer
             exclude: '\.Rd'
-    - repo: https://github.com/pre-commit-ci/pre-commit-ci-config
-      rev: v1.5.1
+    - repo: https://github.com/psf/black
+      rev: 23.1.0
       hooks:
-          # Only reuiqred when https://pre-commit.ci is used for config validation
-          - id: check-pre-commit-ci-config
+          - id: black
+          - id: black-jupyter
     - repo: local
       hooks:
           - id: forbid-to-commit
             name: Don't commit common artifacts
-            entry: Cannot commit artifactors .Rhistory, .RData, .Rds, .rds, __pycache__
+            entry: Cannot commit artifactors .Rhistory, .RData, .Rds, .rds, .pyc,__pycache__
             language: fail
-            files: '\.*(Rhistory|RData|Rds|rds|__pycache__)$'
+            files: '\.(Rhistory|RData|Rds|rds|pyc)$'
             # `exclude: <regex>` to allow committing specific files
 
 ci:

@@ -7,8 +7,10 @@ from pathlib import Path
 analysis_dir = "analysis"
 data_dir = "data"
 
+
 def contains_libs(path: Path):
     return len(list(path.glob("libs"))) > 0
+
 
 def move_files(path: Path):
     paths = path.glob("**/*_files")
@@ -17,15 +19,21 @@ def move_files(path: Path):
         if contains_libs(path):
             dest_dir = dest_base / "libs"
             lib_files = (path / "libs").glob("*")
-            for dependency in lib_files: # [analysis/<analysis-name>/<anlysis-name>_files/libs/jquery-1.11.1]
-                dest = os.path.join(dest_dir, dependency.name) # public/libs/jquery-1.11.1
+            for (
+                dependency
+            ) in (
+                lib_files
+            ):  # [analysis/<analysis-name>/<anlysis-name>_files/libs/jquery-1.11.1]
+                dest = os.path.join(
+                    dest_dir, dependency.name
+                )  # public/libs/jquery-1.11.1
                 if not os.path.isdir(dest):
                     shutil.move(dependency, dest)
             shutil.rmtree(path)
         else:
             parts = path.parts
             if "content" in parts:
-                suffix = os.path.join(*parts[parts.index("content") + 1:])
+                suffix = os.path.join(*parts[parts.index("content") + 1 :])
             else:
                 suffix = path
             dest = dest_base / suffix
@@ -33,32 +41,38 @@ def move_files(path: Path):
                 shutil.rmtree(dest)
             shutil.move(path, dest)
 
+
 def fix_links(files: list[str]):
     for file in files:
         path = Path(file)
         # example path.parts ('src', 'content', 'analysis', 'dynamic-rmd-quarto', 'index.md')
         parent_dirs = path.parts[:-1]
-        dir = parent_dirs[2] # "data" or "analysis"
-        prefix = os.path.join(*parent_dirs[parent_dirs.index(dir):]) # analysis/dynamic-rmd-quarto
+        dir = parent_dirs[2]  # "data" or "analysis"
+        prefix = os.path.join(
+            *parent_dirs[parent_dirs.index(dir) :]
+        )  # analysis/dynamic-rmd-quarto
         with path.open(mode="r+") as f:
             lines_replaced = [process_line(line, prefix) for line in f]
             f.seek(0)
             f.writelines(lines_replaced)
             f.truncate()
 
+
 def process_line(line: str, prefix):
     # check for gfm markdown image syntax
     if re.match(r"^!\[.*\]\(.+\)", line):
-        line_replaced = re.sub(r"^!\[(.*)\]\((.+)\)", r"![\1](/{prefix}/\2)".format(prefix=prefix), line)
+        line_replaced = re.sub(
+            r"^!\[(.*)\]\((.+)\)", r"![\1](/{prefix}/\2)".format(prefix=prefix), line
+        )
         return line_replaced
 
-    match  =  re.match(r"^(<script|<link|<img).+?>", line)
+    match = re.match(r"^(<script|<link|<img).+?>", line)
     if match is None:
         return line
 
     type = re.match(r"^<\w+", line).group(0).strip("<").strip(" ")
     if type == "script":
-       return replace_link(line, "src", prefix)
+        return replace_link(line, "src", prefix)
 
     elif type == "link":
         return replace_link(line, "href", prefix)
@@ -69,22 +83,36 @@ def process_line(line: str, prefix):
 
 def replace_link(line, attr, prefix):
     match = re.search(r'{attr}="(.*?)"'.format(attr=attr), line)
-    if match :
+    if match:
         attr_val = match.group(1)
         if not attr_val.startswith("http"):
             if "libs" in attr_val:
                 libs_idx = attr_val.find("libs")
                 libs_idx = libs_idx + len("libs")
-                line_replaced = re.sub(r'{attr}="(.*?)"'.format(attr=attr), r'{attr}="/libs{after}"'.format(attr=attr,after=attr_val[libs_idx:]), line)
+                line_replaced = re.sub(
+                    r'{attr}="(.*?)"'.format(attr=attr),
+                    r'{attr}="/libs{after}"'.format(
+                        attr=attr, after=attr_val[libs_idx:]
+                    ),
+                    line,
+                )
             else:
-                line_replaced = re.sub(r'{attr}="(.*?)"'.format(attr=attr), r'{attr}="/{prefix}/\1"'.format(attr=attr, prefix=prefix), line)
+                line_replaced = re.sub(
+                    r'{attr}="(.*?)"'.format(attr=attr),
+                    r'{attr}="/{prefix}/\1"'.format(attr=attr, prefix=prefix),
+                    line,
+                )
 
             return line_replaced
 
     return line
 
 
-output_dir = "src/content" if os.getenv("QUARTO_PROJECT_OUTPUT_DIR") is None else os.getenv("QUARTO_PROJECT_OUTPUT_DIR")
+output_dir = (
+    "src/content"
+    if os.getenv("QUARTO_PROJECT_OUTPUT_DIR") is None
+    else os.getenv("QUARTO_PROJECT_OUTPUT_DIR")
+)
 
 move_files(Path(output_dir, analysis_dir))
 move_files(Path(output_dir, data_dir))
