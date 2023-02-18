@@ -24,11 +24,15 @@ tips = sns.load_dataset("tips")
 # Create a visualization
 sns.relplot(
     data=tips,
-    x="total_bill", y="tip", col="time",
-    hue="smoker", style="smoker", size="size",
+    x="total_bill",
+    y="tip",
+    col="time",
+    hue="smoker",
+    style="smoker",
+    size="size",
 )
 ```
 
-    <seaborn.axisgrid.FacetGrid at 0x177294250>
+    <seaborn.axisgrid.FacetGrid at 0x1552bc220>
 
 ![](/analysis/test_files/figure-commonmark/cell-2-output-2.png)
