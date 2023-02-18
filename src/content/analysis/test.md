@@ -1,7 +1,7 @@
 ---
 title: "Analysis of test"
 id: something-else2
-label: "Some example Pytho code"
+label: "Some example Python code"
 author: Qiushi Yan
 date: "2021-06-31"
 description: |
@@ -29,6 +29,6 @@ sns.relplot(
 )
 ```
 
-    <seaborn.axisgrid.FacetGrid at 0x16da2f1c0>
+    <seaborn.axisgrid.FacetGrid at 0x177294250>
 
 ![](/analysis/test_files/figure-commonmark/cell-2-output-2.png)

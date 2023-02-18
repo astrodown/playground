@@ -25,6 +25,7 @@
     "@uiw/codemirror-theme-github": "^4.19.7",
     "@uiw/react-codemirror": "^4.19.7",
     "astro": "^2.0.6",
+    "clsx": "^1.2.1",
     "csvtojson": "^2.0.10",
     "handsontable": "^12.3.1",
     "nanostores": "^0.7.3",

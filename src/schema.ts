@@ -30,13 +30,10 @@ export type ExportData = z.infer<typeof ExportData>;
 
 export const analysisSchema = z.object({
 	title: z.string(),
-	author: z.string(),
+	author: z.union([z.string(), z.array(z.string())]),
 	id: z.string().optional(),
 	label: z.string().optional(),
-	date: z
-		.string()
-		.transform((str) => new Date(str))
-		.optional(),
+	date: z.string().transform((str) => new Date(str)),
 	description: z.string().optional(),
 	tags: z.array(z.string()).default([]),
 	exports: z.array(ExportData).default([]),

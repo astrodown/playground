@@ -1,7 +1,7 @@
 ---
 title: "Analysis of test"
 id: something-else2
-label: "Some example Pytho code"
+label: "Some example Python code"
 author: Qiushi Yan
 date: "2021-06-31"
 description: |

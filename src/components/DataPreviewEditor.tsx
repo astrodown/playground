@@ -1,4 +1,5 @@
 
+import Modal from "./shared/Modal";
 import SlideOver from "./shared/SlideOver";
 import Table from "./shared/Table";
 
@@ -8,13 +9,17 @@ interface Props {
 	data: any;
 	// rome-ignore lint/suspicious/noExplicitAny: <explanation>
 	colHeaders: any;
+	dataTitle: string
 }
 
-export default function DataPreviewEditor({ data, colHeaders }: Props) {
+
+export default function DataPreviewEditor({ data, colHeaders, dataTitle }: Props) {
 	return (
 		// @ts-ignore
-		<SlideOver>
-			<Table data={data} colHeaders={colHeaders} />
-		</SlideOver>
+		<Modal openText="Preview" title={dataTitle} trigger>
+			<Modal.Body>
+				<Table data={data} colHeaders={colHeaders} />
+			</Modal.Body>
+		</Modal>
 	);
 }

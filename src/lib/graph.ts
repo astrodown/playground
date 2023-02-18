@@ -1,21 +1,35 @@
 import { getCollection, CollectionEntry } from "astro:content";
 import type { IUserNode, IUserEdge } from "@antv/graphin";
 
+export const colorConfig: Record<string, string> = {
+	analysis: "#a991f7",
+	data: "#3b82f6",
+	accent: "#eab308",
+};
+
+export interface NodeData {
+	type: "analysis" | "data";
+	slug: string;
+	title: string;
+	description: string;
+}
+
 const getMetadata = (
 	entry: CollectionEntry<"data"> | CollectionEntry<"analysis">,
 ) => {
 	return {
 		id: entry.data.id || entry.id,
 		label: entry.data.label || entry.data.title,
-		type: entry.collection === "analysis" ? "analysis" : "data",
+		type: entry.collection,
 	};
 };
 
-const getNode = (
+export const getNode = (
 	entry: CollectionEntry<"analysis"> | CollectionEntry<"data">,
+	highlightId?: string,
 ): IUserNode => {
 	const { id, label, type } = getMetadata(entry);
-	const color = type === "analysis" ? "#FF6A00" : "#46a7a6";
+	const color = highlightId === id ? colorConfig.accent : colorConfig[type];
 	return {
 		id,
 		data: {
@@ -39,18 +53,19 @@ const getNode = (
 	};
 };
 
-const getEdges = (
+export const getEdges = (
 	entry: CollectionEntry<"analysis"> | CollectionEntry<"data">,
+	highlightId?: string,
 ): IUserEdge[] => {
-	const relationships = entry.data.relationships;
 	const { id, label, type } = getMetadata(entry);
-	const color = type === "analysis" ? "#FF6A00" : "#46a7a6";
+	const relationships = entry.data.relationships;
+	const color = highlightId === id ? colorConfig.accent : colorConfig[type];
 	if (typeof relationships === "string") {
 		return [
 			{
 				source: id,
 				target: relationships,
-				style: { label: { value: "" }, keyshape: { stroke: color } },
+				style: { label: { value: "", fill: color, fontSize: 14 } },
 			},
 		];
 	}
@@ -63,11 +78,11 @@ const getEdges = (
 			style: {
 				label: {
 					value: edgeLabel,
-					fill: "green",
+					fill: color,
+					stroke: color,
 					fontSize: 14,
 				},
 				keyshape: {
-					lineWidth: 4,
 					stroke: color,
 				},
 			},
@@ -75,15 +90,21 @@ const getEdges = (
 	});
 };
 
-export const getGraphData = async () => {
+export const getGraphData = async (
+	entryToHighlight?: CollectionEntry<"analysis"> | CollectionEntry<"data">,
+) => {
+	let highlightId: string | undefined;
+	if (entryToHighlight) {
+		highlightId = entryToHighlight.data.id || entryToHighlight.id;
+	}
 	const nodes: IUserNode[] = [];
 	const edges: IUserEdge[] = [];
 	const allNodes = (
 		await Promise.all([getCollection("data"), getCollection("analysis")])
 	).flat();
 	allNodes.forEach((entry) => {
-		const node = getNode(entry);
-		const nodeEdges = getEdges(entry);
+		const node = getNode(entry, highlightId);
+		const nodeEdges = getEdges(entry, highlightId);
 		nodes.push(node);
 		edges.push(...nodeEdges);
 	});

@@ -1,28 +1,39 @@
 
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon, ArrowsPointingOutIcon } from '@heroicons/react/24/outline'
+import clsx from 'clsx';
 interface Props {
-    openText: string;
-    content: string;
+    openText?: string;
+    title?: string;
+    children: React.ReactNode;
+    className?: string
 }
 
-const Modal = ({ openText, content }: Props) => {
+
+const Body = ({ children }: { children: React.ReactNode }) => {
+    return (
+        <div className="mt-3 text-center sm:mt-5">
+            {children}
+        </div>
+    );
+}
+
+const Modal = ({ openText, children, title, className = "bg-white" }: Props) => {
     const [showModal, setShowModal] = useState(false);
     return (
         <>
             <button
-                className="bg-blue-200 text-black active:bg-blue-500
-      font-bold px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                className={clsx("outline-none focus:outline-none mr-1 mb-1", { "border border-blue-600 font-bold p-3 rounded shadow hover:shadow-lg": openText })}
                 type="button"
                 onClick={() => setShowModal(true)}
             >
-                {openText}
+                {openText ? openText : <ArrowsPointingOutIcon className='w-6 h-6' />}
             </button>
             {showModal ? (
                 <>
                     <Transition.Root show={showModal} as={Fragment}>
-                        <Dialog as="div" className="relative z-10" onClose={setShowModal}>
+                        <Dialog as="div" className="relative z-10" onClose={setShowModal} >
                             <Transition.Child
                                 as={Fragment}
                                 enter="ease-out duration-300"
@@ -46,24 +57,18 @@ const Modal = ({ openText, content }: Props) => {
                                         leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                                         leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                                     >
-                                        <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl sm:p-6">
-                                            <div>
-                                                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                                                    <CheckIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
-                                                </div>
-                                                <div className="mt-3 text-center sm:mt-5">
-                                                    {content}
+                                        <Dialog.Panel className={clsx("relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl sm:p-6", className)}>
+                                            <div className="flex items-center">
+                                                {title && <h2 className='font-serif font-semibold text-xl'>
+                                                    {title}
+                                                </h2>}
+                                                <div className='ml-auto' >
+                                                    <button onClick={() => setShowModal(false)}>
+                                                        <XMarkIcon className='w-6 h-6' />
+                                                    </button>
                                                 </div>
                                             </div>
-                                            <div className="mt-5 sm:mt-6">
-                                                <button
-                                                    type="button"
-                                                    className="inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
-                                                    onClick={() => setShowModal(false)}
-                                                >
-                                                    Go back to dashboard
-                                                </button>
-                                            </div>
+                                            {children}
                                         </Dialog.Panel>
                                     </Transition.Child>
                                 </div>
@@ -75,5 +80,8 @@ const Modal = ({ openText, content }: Props) => {
         </>
     );
 };
+
+
+Modal.Body = Body
 
 export default Modal;

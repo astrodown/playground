@@ -3,6 +3,9 @@ title: "mtcars data"
 id: mtcars
 label: mtcars dataset
 previewURL: "https://raw.githubusercontent.com/sap0408/mtcars/master/mtcars.csv"
+relationships:
+  - id: something-else
+    label: "whatever"
 ---
 
 # Introduction

@@ -1,6 +1,7 @@
 ---
 import { getCollection, CollectionEntry } from "astro:content";
 import Data from "../../layouts/Data.astro";
+import { getGraphData } from "@lib/graph";
 
 export const prerender = true;
 
@@ -17,6 +18,7 @@ interface Props {
 }
 
 const { entry } = Astro.props;
+const graphData = await getGraphData(entry);
 ---
 
-<Data entry={entry} />
+<Data entry={entry} graphData={graphData} />
