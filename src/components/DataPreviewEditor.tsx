@@ -16,7 +16,7 @@ interface Props {
 export default function DataPreviewEditor({ data, colHeaders, dataTitle }: Props) {
 	return (
 		// @ts-ignore
-		<Modal openText="Preview" title={dataTitle} trigger>
+		<Modal openText="Preview" title={dataTitle} className="max-w-3xl">
 			<Modal.Body>
 				<Table data={data} colHeaders={colHeaders} />
 			</Modal.Body>

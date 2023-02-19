@@ -3,6 +3,7 @@ import SiteHeader from "@components/SiteHeader.astro";
 import BaseHead from "../components/BaseHead.astro";
 import "@styles/global.css";
 import type { GraphinData } from "@antv/graphin";
+import SiteFooter from "@components/SiteFooter.astro";
 
 interface Props {
     class?: string;
@@ -11,7 +12,7 @@ interface Props {
 
 let { class: className, graphData } = Astro.props;
 if (!className) {
-    className = "max-w-6xl mx-auto";
+    className = "max-w-6xl mx-auto min-h-screen";
 }
 ---
 
@@ -22,5 +23,6 @@ if (!className) {
         <main class={className}>
             <slot />
         </main>
+        <SiteFooter />
     </body>
 </html>

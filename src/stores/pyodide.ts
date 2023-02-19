@@ -1,4 +1,3 @@
-import { useStore } from "@nanostores/react";
 import { action, map, onMount } from "nanostores";
 import { PyodideInterface, loadPyodide } from "pyodide";
 
