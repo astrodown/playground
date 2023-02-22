@@ -22,7 +22,7 @@ repos:
     hooks:
       - id: forbid-to-commit
         name: Don't commit common artifacts
-        entry: Cannot commit artifactors .Rhistory, .RData, .Rds, .rds, .pyc,__pycache__, use "git rm --cached <file>" to remove them
+        entry: Cannot commit artifactors .Rhistory, .RData, .Rds, .rds, .pyc, __pycache__, use "git rm --cached <file>" to remove them
         language: fail
         files: '\.(Rhistory|RData|Rds|rds|pyc)$|__pycache__/'
         # `exclude: <regex>` to allow committing specific files

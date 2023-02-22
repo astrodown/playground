@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@antv/graphin': ^2.7.13
+  '@astrodown/mars-react': ^0.0.5
   '@astrojs/react': ^2.0.2
   '@astrojs/tailwind': ^3.0.1
   '@codemirror/lang-python': ^6.1.1
@@ -27,6 +28,7 @@ specifiers:
 
 dependencies:
   '@antv/graphin': 2.7.13_biqbaboplfbrettd7655fr4n2y
+  '@astrodown/mars-react': 0.0.5_o6kvctj5mtsh3wd5sfxuvcxoki
   '@astrojs/react': 2.0.2_fxtgt6bjwd6p4cwoordejim2zi
   '@astrojs/tailwind': 3.0.1_jiulpwjund37q6yckwlgwo54mu
   '@codemirror/lang-python': 6.1.1
@@ -302,6 +304,45 @@ packages:
     dependencies:
       csstype: 3.1.1
       tslib: 2.5.0
+    dev: false
+
+  /@astrodown/mars-core/0.0.3:
+    resolution: {integrity: sha512-WF1xur7l6Xh4Zymqk/EujMUqHq71loLNN3YJhL1V+zvi4UscnhQqrKswHSq/3+Jtoz3nlAgx1hY26983jK4r4Q==}
+    dependencies:
+      nanostores: 0.7.4
+      pyodide: 0.22.1
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - utf-8-validate
+    dev: false
+
+  /@astrodown/mars-react/0.0.5_o6kvctj5mtsh3wd5sfxuvcxoki:
+    resolution: {integrity: sha512-2p7s5S+JFLcosRY4ocJ7F51ZcS/UGOO5/S9zh4mYpXKBSQpopwZ3N6SkPoeuS9Hsm/Cl80DdkRzQva4xo5EHEw==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      '@astrodown/mars-core': 0.0.3
+      '@astrodown/schema': 0.0.1
+      '@codemirror/lang-python': 6.1.1
+      '@nanostores/react': 0.4.1_r2zhwuwjlamxsrqcq6x6g7w7iu
+      '@uiw/codemirror-theme-github': 4.19.9
+      '@uiw/react-codemirror': 4.19.9_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    transitivePeerDependencies:
+      - '@codemirror/view'
+      - bufferutil
+      - encoding
+      - nanostores
+      - utf-8-validate
+    dev: false
+
+  /@astrodown/schema/0.0.1:
+    resolution: {integrity: sha512-TlrMGPB/nl9oL52BRvc1++U0O1VIKmAI2tocbEGDlJRbs9XG/OfSnlL3zi9HLZbPIdbQ/4O8847bh/HN2+VZUw==}
+    dependencies:
+      zod: 3.20.6
     dev: false
 
   /@astrojs/compiler/0.31.4:
@@ -1253,14 +1294,40 @@ packages:
       '@codemirror/view': 6.7.3
     dev: false
 
+  /@uiw/codemirror-extensions-basic-setup/4.19.9:
+    resolution: {integrity: sha512-O4yAgVpD3Pon4t4+lwZ2MTGg2TeU/Jv8YzKS9ap4fP/WMTVrKmpdq+DOafbhZSlhmU0XGfQPPJ4WX6rtZgx3Rw==}
+    dependencies:
+      '@codemirror/autocomplete': 6.4.0
+      '@codemirror/commands': 6.2.0
+      '@codemirror/language': 6.4.0
+      '@codemirror/lint': 6.1.0
+      '@codemirror/search': 6.2.3
+      '@codemirror/state': 6.2.0
+      '@codemirror/view': 6.7.3
+    dev: false
+
   /@uiw/codemirror-theme-github/4.19.7:
     resolution: {integrity: sha512-yeBKOS31bJWvxHWv/hO8CC5Hz657poyuCRX533B+7c2W3B5TX48i49GC9k91yX/BfCsTVqneONk4ZgRWGJkDww==}
     dependencies:
       '@uiw/codemirror-themes': 4.19.7
     dev: false
 
+  /@uiw/codemirror-theme-github/4.19.9:
+    resolution: {integrity: sha512-TxAJu7eFrIWUvekJ/jbev8fGx4fAYRH3FCxS21rm8B1OzF/aRcJM28zlC1rgKxMV5uG4KjWHOdvT3rNIVs1Meg==}
+    dependencies:
+      '@uiw/codemirror-themes': 4.19.9
+    dev: false
+
   /@uiw/codemirror-themes/4.19.7:
     resolution: {integrity: sha512-M/42RkPI60ItlssmNuEoZO2MQvlY6fRmdX7XRUAhKjxczZoaq8xS6HIvv1whGf2zGsTrwdVTPCm6ls0l17dvPA==}
+    dependencies:
+      '@codemirror/language': 6.4.0
+      '@codemirror/state': 6.2.0
+      '@codemirror/view': 6.7.3
+    dev: false
+
+  /@uiw/codemirror-themes/4.19.9:
+    resolution: {integrity: sha512-PH3hl1w42z7GXe/zoD9gSadOGBWyKPl7vHm/8V1PUuHXT21+neyfRc7v0xPwb05pGP6ExfbmPi78y4+g6cHopg==}
     dependencies:
       '@codemirror/language': 6.4.0
       '@codemirror/state': 6.2.0
@@ -1279,6 +1346,23 @@ packages:
       '@codemirror/state': 6.2.0
       '@codemirror/theme-one-dark': 6.1.0
       '@uiw/codemirror-extensions-basic-setup': 4.19.7
+      codemirror: 6.0.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@uiw/react-codemirror/4.19.9_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-U+A1fSfELMFFs5a+ZOPwCJKZMYaMy6QHOfNOOV7WhSveM7GYHT970GjTfs2dn1LlvhebwyK9ei0rCXZdsI9n9Q==}
+    peerDependencies:
+      '@codemirror/view': '>=6.0.0'
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@babel/runtime': 7.20.13
+      '@codemirror/commands': 6.2.0
+      '@codemirror/state': 6.2.0
+      '@codemirror/theme-one-dark': 6.1.0
+      '@uiw/codemirror-extensions-basic-setup': 4.19.9
       codemirror: 6.0.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -3025,6 +3109,11 @@ packages:
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     dev: false
 
+  /nanostores/0.7.4:
+    resolution: {integrity: sha512-MBeUVt7NBcXqh7AGT+KSr3O0X/995CZsvcP2QEMP+PXFwb07qv3Vjyq+EX0yS8f12Vv3Tn2g/BvK/OZoMhJlOQ==}
+    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
+    dev: false
+
   /nlcst-to-string/3.1.1:
     resolution: {integrity: sha512-63mVyqaqt0cmn2VcI2aH6kxe1rLAmSROqHMA0i4qqg1tidkfExgpb0FGMikMCn86mw5dFtBtEANfmSSK7TjNHw==}
     dependencies:
@@ -4296,6 +4385,10 @@ packages:
 
   /zod/3.20.2:
     resolution: {integrity: sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==}
+    dev: false
+
+  /zod/3.20.6:
+    resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
     dev: false
 
   /zwitch/2.0.4:

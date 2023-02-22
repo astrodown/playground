@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@antv/graphin": "^2.7.13",
+    "@astrodown/mars-react": "^0.0.5",
     "@astrojs/react": "^2.0.2",
     "@astrojs/tailwind": "^3.0.1",
     "@codemirror/lang-python": "^6.1.1",
