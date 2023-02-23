@@ -2,7 +2,6 @@
   "name": "@example/basics",
   "type": "module",
   "version": "0.0.1",
-  "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -12,7 +11,8 @@
   },
   "dependencies": {
     "@antv/graphin": "^2.7.13",
-    "@astrodown/mars-react": "^0.0.5",
+    "@astrodown/mars-react": "^0.0.7",
+    "@astrodown/schema": "^0.0.2",
     "@astrojs/react": "^2.0.2",
     "@astrojs/tailwind": "^3.0.1",
     "@codemirror/lang-python": "^6.1.1",

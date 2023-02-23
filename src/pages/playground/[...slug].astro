@@ -3,7 +3,7 @@ import { getCollection, getEntryBySlug } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { PlaygroundWrapper } from "@astrodown/mars-react";
 import "@astrodown/mars-react/dist/style.css";
-import type { ExportData } from "src/schema";
+import type { ExportData } from "@astrodown/schema";
 
 export const getStaticPaths = async () => {
   const analysis = await getCollection("analysis");
@@ -29,7 +29,9 @@ if (slug) {
 <BaseLayout>
   {
     exports.length > 0 ? (
-      <PlaygroundWrapper exports={exports} client:only="react" />
+      <>
+        <PlaygroundWrapper exports={exports} client:only="react" />
+      </>
     ) : (
       <h2>{slug} exports no data</h2>
     )

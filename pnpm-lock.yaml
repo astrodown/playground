@@ -2,7 +2,8 @@ lockfileVersion: 5.4
 
 specifiers:
   '@antv/graphin': ^2.7.13
-  '@astrodown/mars-react': ^0.0.5
+  '@astrodown/mars-react': ^0.0.7
+  '@astrodown/schema': ^0.0.2
   '@astrojs/react': ^2.0.2
   '@astrojs/tailwind': ^3.0.1
   '@codemirror/lang-python': ^6.1.1
@@ -28,7 +29,8 @@ specifiers:
 
 dependencies:
   '@antv/graphin': 2.7.13_biqbaboplfbrettd7655fr4n2y
-  '@astrodown/mars-react': 0.0.5_o6kvctj5mtsh3wd5sfxuvcxoki
+  '@astrodown/mars-react': 0.0.7_o6kvctj5mtsh3wd5sfxuvcxoki
+  '@astrodown/schema': 0.0.2
   '@astrojs/react': 2.0.2_fxtgt6bjwd6p4cwoordejim2zi
   '@astrojs/tailwind': 3.0.1_jiulpwjund37q6yckwlgwo54mu
   '@codemirror/lang-python': 6.1.1
@@ -306,8 +308,8 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@astrodown/mars-core/0.0.3:
-    resolution: {integrity: sha512-WF1xur7l6Xh4Zymqk/EujMUqHq71loLNN3YJhL1V+zvi4UscnhQqrKswHSq/3+Jtoz3nlAgx1hY26983jK4r4Q==}
+  /@astrodown/mars-core/0.0.4:
+    resolution: {integrity: sha512-D1KV7OAS/e9qhkLNHr3olejT6C0FtUONkyL6yca21brPdtmhw0XPxhI9CQLKeyikbdXql9E/0IbLmTV7uOXS/g==}
     dependencies:
       nanostores: 0.7.4
       pyodide: 0.22.1
@@ -317,18 +319,19 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@astrodown/mars-react/0.0.5_o6kvctj5mtsh3wd5sfxuvcxoki:
-    resolution: {integrity: sha512-2p7s5S+JFLcosRY4ocJ7F51ZcS/UGOO5/S9zh4mYpXKBSQpopwZ3N6SkPoeuS9Hsm/Cl80DdkRzQva4xo5EHEw==}
+  /@astrodown/mars-react/0.0.7_o6kvctj5mtsh3wd5sfxuvcxoki:
+    resolution: {integrity: sha512-TpP4UTBxYuVt9qVxeXokRQ7hb9eHJw27ekBVuawyrN38fAGFkuhcurJiGgiZ/mBuQ21u8FMuDvScmQxqI6xfDg==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
     dependencies:
-      '@astrodown/mars-core': 0.0.3
-      '@astrodown/schema': 0.0.1
+      '@astrodown/mars-core': 0.0.4
+      '@astrodown/schema': 0.0.2
       '@codemirror/lang-python': 6.1.1
       '@nanostores/react': 0.4.1_r2zhwuwjlamxsrqcq6x6g7w7iu
       '@uiw/codemirror-theme-github': 4.19.9
       '@uiw/react-codemirror': 4.19.9_biqbaboplfbrettd7655fr4n2y
+      clsx: 1.2.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     transitivePeerDependencies:
@@ -339,8 +342,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@astrodown/schema/0.0.1:
-    resolution: {integrity: sha512-TlrMGPB/nl9oL52BRvc1++U0O1VIKmAI2tocbEGDlJRbs9XG/OfSnlL3zi9HLZbPIdbQ/4O8847bh/HN2+VZUw==}
+  /@astrodown/schema/0.0.2:
+    resolution: {integrity: sha512-PxYpsOTdrKQNudR2ceeBT0MKbTafbWVoA4fAtVNaLB6FLH9UVBHd2Tpno+/CxttRTsN5cdNl4iRyCUtsNqeEsw==}
     dependencies:
       zod: 3.20.6
     dev: false
