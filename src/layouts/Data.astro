@@ -1,15 +1,16 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
-import DataPreviewEditor from "@components/DataPreviewEditor";
+import DataPreview from "@components/data/DataPreview";
 import csv from "csvtojson";
 import Alert from "@components/shared/Alert.astro";
 import SidebarLayout from "./SidebarLayout.astro";
 import type { GraphinData } from "@antv/graphin";
+import Badge from "@components/shared/Badge.astro";
 
 export interface Props {
-    entry: CollectionEntry<"data">;
-    graphData?: GraphinData;
+  entry: CollectionEntry<"data">;
+  graphData?: GraphinData;
 }
 
 const { entry, graphData } = Astro.props;
@@ -20,37 +21,45 @@ let data = null;
 let colHeaders = null;
 let error = "";
 if (entry.data.previewURL) {
-    try {
-        const res = await fetch(entry.data.previewURL);
-        const text = await res.text();
-        data = await parser.fromString(text);
-        colHeaders = Object.keys(data[0]);
-    } catch (err: unknown) {
-        error = `Failed to process data at ${entry.data.previewURL}. Data Preview only supports a static csv, tsv, or json file.`;
-    }
+  try {
+    const res = await fetch(entry.data.previewURL);
+    const text = await res.text();
+    data = await parser.fromString(text);
+    colHeaders = Object.keys(data[0]);
+  } catch (err: unknown) {
+    error = `Failed to process data at ${entry.data.previewURL}. Data Preview only supports a static csv, tsv, or json file.`;
+  }
 }
 ---
 
 <BaseLayout graphData={graphData}>
-    <div class="max-w-5xl mx-auto p-4 m-4e">
-        <SidebarLayout>
-            <div slot="sidebar">
-                <h1>{entry.data.title}</h1>
-                {error && <Alert>{error}</Alert>}
-                {
-                    entry.data.previewURL && data && (
-                        <DataPreviewEditor
-                            data={data}
-                            dataTitle={entry.data.title}
-                            colHeaders={colHeaders}
-                            client:only="react"
-                        />
-                    )
-                }
-            </div>
-            <div slot="main">
-                <Content />
-            </div>
-        </SidebarLayout>
-    </div>
+  <div class="max-w-5xl mx-auto p-4 m-4e">
+    <SidebarLayout>
+      <div slot="sidebar">
+        <h1>{entry.data.title}</h1>
+        {error && <Alert>{error}</Alert>}
+        {
+          entry.data.previewURL && data && (
+            <DataPreview
+              data={data}
+              dataTitle={entry.data.title}
+              dataDescription={entry.data.description}
+              headers={colHeaders as string[]}
+              client:only="load"
+            />
+          )
+        }
+        {
+          entry.data.exports.length > 0 && (
+            <a href={`/playground/${entry.slug}`}>
+              <Badge class="bg-blue-200 text-blue-800">Playground</Badge>
+            </a>
+          )
+        }
+      </div>
+      <div slot="main">
+        <Content />
+      </div>
+    </SidebarLayout>
+  </div>
 </BaseLayout>

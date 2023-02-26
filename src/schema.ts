@@ -46,5 +46,6 @@ export const dataSchema = z.object({
 	label: z.string().optional(),
 	previewURL: z.string().optional(),
 	description: z.string().optional(),
+	exports: z.array(ExportData).default([]),
 	relationships: z.array(Relationship).default([]),
 });

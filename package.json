@@ -1,5 +1,5 @@
 {
-  "name": "@example/basics",
+  "name": "astrodown-playground",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,29 +11,24 @@
   },
   "dependencies": {
     "@antv/graphin": "^2.7.13",
-    "@astrodown/mars-react": "^0.0.7",
-    "@astrodown/schema": "^0.0.2",
+    "@astrodown/mars-react": "^0.0.10",
+    "@astrodown/schema": "*",
     "@astrojs/react": "^2.0.2",
     "@astrojs/tailwind": "^3.0.1",
-    "@codemirror/lang-python": "^6.1.1",
-    "@handsontable/react": "^12.3.1",
     "@headlessui/react": "^1.7.10",
     "@heroicons/react": "^2.0.14",
     "@nanostores/react": "^0.4.1",
-    "@tailwindcss/typography": "^0.5.9",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "@uiw/codemirror-theme-github": "^4.19.7",
-    "@uiw/react-codemirror": "^4.19.7",
     "astro": "^2.0.6",
     "clsx": "^1.2.1",
     "csvtojson": "^2.0.10",
-    "handsontable": "^12.3.1",
     "nanostores": "^0.7.3",
-    "pyodide": "^0.22.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-helmet-async": "^1.3.0",
     "tailwindcss": "^3.0.24"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6"
   }
 }
