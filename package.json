@@ -10,8 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@antv/graphin": "^2.7.13",
-    "@astrodown/mars-react": "^0.0.10",
+    "@astrodown/graph": "^0.0.5",
+    "@astrodown/mars-react": "*",
     "@astrodown/schema": "*",
     "@astrojs/react": "^2.0.2",
     "@astrojs/tailwind": "^3.0.1",

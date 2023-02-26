@@ -1,28 +1,28 @@
 ---
 import SiteHeader from "@components/SiteHeader.astro";
 import BaseHead from "../components/BaseHead.astro";
-import "@styles/global.css";
-import type { GraphinData } from "@antv/graphin";
+import type { GraphinData } from "@astrodown/graph";
 import SiteFooter from "@components/SiteFooter.astro";
+import "@styles/global.css";
 
 interface Props {
-    class?: string;
-    graphData?: GraphinData;
+  class?: string;
+  graphData?: GraphinData;
 }
 
 let { class: className, graphData } = Astro.props;
 if (!className) {
-    className = "max-w-6xl mx-auto min-h-screen";
+  className = "max-w-6xl mx-auto min-h-screen";
 }
 ---
 
 <html lang="en">
-    <BaseHead />
-    <body>
-        <SiteHeader graphData={graphData} />
-        <main class={className}>
-            <slot />
-        </main>
-        <SiteFooter />
-    </body>
+  <BaseHead />
+  <body>
+    <SiteHeader graphData={graphData} />
+    <main class={className}>
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
 </html>

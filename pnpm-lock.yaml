@@ -1,8 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@antv/graphin': ^2.7.13
-  '@astrodown/mars-react': ^0.0.10
+  '@astrodown/graph': ^0.0.5
+  '@astrodown/mars-react': '*'
   '@astrodown/schema': '*'
   '@astrojs/react': ^2.0.2
   '@astrojs/tailwind': ^3.0.1
@@ -29,7 +29,7 @@ specifiers:
   tailwindcss: ^3.0.24
 
 dependencies:
-  '@antv/graphin': 2.7.13_biqbaboplfbrettd7655fr4n2y
+  '@astrodown/graph': 0.0.5_biqbaboplfbrettd7655fr4n2y
   '@astrodown/mars-react': 0.0.10_o6kvctj5mtsh3wd5sfxuvcxoki
   '@astrodown/schema': 0.0.2
   '@astrojs/react': 2.0.2_fxtgt6bjwd6p4cwoordejim2zi
@@ -402,6 +402,20 @@ packages:
       tslib: 2.5.0
     dev: false
 
+  /@astrodown/graph/0.0.5_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-XPJYAW06zgTCC3J9i1VwbnaMPEzRYspx3uiZ8AO39/nliLyb8Wz8woiOuNcedpg1th1JkscYciVUSP1Jl6LW2w==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      '@antv/graphin': 2.7.13_biqbaboplfbrettd7655fr4n2y
+      '@astrodown/schema': 0.0.3
+      '@headlessui/react': 1.7.12_biqbaboplfbrettd7655fr4n2y
+      '@heroicons/react': 2.0.16_react@18.2.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /@astrodown/mars-core/0.0.4:
     resolution: {integrity: sha512-D1KV7OAS/e9qhkLNHr3olejT6C0FtUONkyL6yca21brPdtmhw0XPxhI9CQLKeyikbdXql9E/0IbLmTV7uOXS/g==}
     dependencies:
@@ -439,6 +453,12 @@ packages:
 
   /@astrodown/schema/0.0.2:
     resolution: {integrity: sha512-PxYpsOTdrKQNudR2ceeBT0MKbTafbWVoA4fAtVNaLB6FLH9UVBHd2Tpno+/CxttRTsN5cdNl4iRyCUtsNqeEsw==}
+    dependencies:
+      zod: 3.20.6
+    dev: false
+
+  /@astrodown/schema/0.0.3:
+    resolution: {integrity: sha512-lTEopH2exbkAl+qR0Kq8a8xprgvIPmhpJXggiMhl89itrE0LptmP10oTwzkuQ6H8hYees2U2OBe/SRH0dUNnCQ==}
     dependencies:
       zod: 3.20.6
     dev: false
@@ -802,17 +822,6 @@ packages:
       '@lezer/common': 1.0.2
     dev: false
 
-  /@codemirror/autocomplete/6.4.0_@codemirror+state@6.2.0:
-    resolution: {integrity: sha512-HLF2PnZAm1s4kGs30EiqKMgD7XsYaQ0XJnMR0rofEWQ5t5D60SfqpDIkIh1ze5tiEbyUWm8+VJ6W1/erVvBMIA==}
-    peerDependencies:
-      '@codemirror/state': ^6.0.0
-    dependencies:
-      '@codemirror/language': 6.4.0
-      '@codemirror/state': 6.2.0
-      '@codemirror/view': 6.7.3
-      '@lezer/common': 1.0.2
-    dev: false
-
   /@codemirror/commands/6.2.0:
     resolution: {integrity: sha512-+00smmZBradoGFEkRjliN7BjqPh/Hx0KCHWOEibUmflUqZz2RwBTU0MrVovEEHozhx3AUSGcO/rl3/5f9e9Biw==}
     dependencies:
@@ -1104,8 +1113,28 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
+  /@headlessui/react/1.7.12_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-FhSx5V+Qp0GvbTpaxyS+ymGDDNntCacClWsk/d8Upbr19g3AsPbjfPk4+m2CgJGcuCB5Dz7LpUIOAbvQTyjL2g==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      client-only: 0.0.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /@heroicons/react/2.0.14_react@18.2.0:
     resolution: {integrity: sha512-eFL4if6L7woL1fUvk/jjXx4z9NxVESHHrQnEd2qKVelTFTIr/3VLGWdPb0biia9ZVe26P0JSs/xmOlRNur3SrQ==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /@heroicons/react/2.0.16_react@18.2.0:
+    resolution: {integrity: sha512-x89rFxH3SRdYaA+JCXwfe+RkE1SFTo9GcOkZettHer71Y3T7V+ogKmfw5CjTazgS3d0ClJ7p1NA+SP7VQLQcLw==}
     peerDependencies:
       react: '>= 16'
     dependencies:
@@ -1391,7 +1420,7 @@ packages:
   /@uiw/codemirror-extensions-basic-setup/4.19.9:
     resolution: {integrity: sha512-O4yAgVpD3Pon4t4+lwZ2MTGg2TeU/Jv8YzKS9ap4fP/WMTVrKmpdq+DOafbhZSlhmU0XGfQPPJ4WX6rtZgx3Rw==}
     dependencies:
-      '@codemirror/autocomplete': 6.4.0_@codemirror+state@6.2.0
+      '@codemirror/autocomplete': 6.4.0
       '@codemirror/commands': 6.2.0
       '@codemirror/language': 6.4.0
       '@codemirror/lint': 6.1.0

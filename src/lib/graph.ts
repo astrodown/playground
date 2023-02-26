@@ -1,18 +1,11 @@
 import { getCollection, CollectionEntry } from "astro:content";
-import type { IUserNode, IUserEdge } from "@antv/graphin";
+import type { IUserNode, IUserEdge } from "@astrodown/graph";
 
 export const colorConfig: Record<string, string> = {
 	analysis: "#a991f7",
 	data: "#3b82f6",
 	accent: "#eab308",
 };
-
-export interface NodeData {
-	type: "analysis" | "data";
-	slug: string;
-	title: string;
-	description: string;
-}
 
 const getMetadata = (
 	entry: CollectionEntry<"data"> | CollectionEntry<"analysis">,

@@ -1,8 +1,8 @@
 ---
+import type { GraphinData } from "@astrodown/graph";
+import Network from "./Network.astro";
 import Link from "./shared/Link.astro";
 import Modal from "./shared/Modal";
-import Network from "@components/graph/Network";
-import type { GraphinData } from "@antv/graphin";
 import { getGraphData } from "@lib/graph";
 
 interface Props {
@@ -24,7 +24,7 @@ if (!graphData) {
 
   <a class="margin-left">
     <Modal client:load className="bg-black max-w-4xl">
-      <Network client:only="react" data={graphData} />
+      <Network data={graphData} />
     </Modal>
   </a>
 </nav>

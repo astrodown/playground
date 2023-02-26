@@ -1,5 +1,3 @@
-import type { Layout } from "@antv/graphin";
-
 export const showError = (error: unknown): string => {
 	return error instanceof Error ? error.message : String(error);
 };
@@ -15,16 +13,3 @@ export const showArray = (x: string | string[]) => {
 
 	return x;
 };
-
-export const graphLayoutOptions: Layout[] = [
-	"graphin-force",
-	"grid",
-	"circular",
-	"concentric",
-	"dagre",
-	"radia",
-	"mds",
-	"force",
-	"gForce",
-	"random",
-].map((s) => ({ type: s }));
