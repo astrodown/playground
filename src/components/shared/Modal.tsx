@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Body = ({ children }: { children: React.ReactNode }) => {
-	return <div className="mt-3 text-center sm:mt-5">{children}</div>;
+	return <div className="text-center">{children}</div>;
 };
 
 const Modal = ({

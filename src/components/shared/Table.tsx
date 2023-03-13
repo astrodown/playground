@@ -3,27 +3,11 @@ import React from "react";
 interface Props {
 	data: Record<string, string>[];
 	headers: string[];
-	dataTitle?: string;
-	dataDescription?: string;
 }
 
-const Table = ({ data, headers, dataTitle, dataDescription }: Props) => {
+const Table = ({ data, headers }: Props) => {
 	return (
 		<div className="px-4">
-			<div className="sm:flex sm:items-center">
-				<div className="sm:flex-auto">
-					{dataTitle && (
-						<h1 className="text-base font-semibold leading-6 text-gray-900 font-serif">
-							{dataTitle}
-						</h1>
-					)}
-					{dataDescription && (
-						<p className="mt-2 text-sm text-gray-700 text-left">
-							{dataDescription}
-						</p>
-					)}
-				</div>
-			</div>
 			<div className="mt-4 flow-root">
 				<div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
 					<div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
