@@ -1,7 +1,0 @@
-featured:
-  analysis:
-    - r
-    - something-else
-    - something-else2
-  data:
-    - mtcars

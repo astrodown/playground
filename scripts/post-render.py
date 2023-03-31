@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import shutil
 from astrodown.quarto import move_quarto_resources_to_public, adjust_resource_links
 
 
@@ -20,4 +21,11 @@ move_quarto_resources_to_public(Path(analysis_dir))
 
 if os.getenv("QUARTO_PROJECT_OUTPUT_FILES") is not None:
     output_files = os.getenv("QUARTO_PROJECT_OUTPUT_FILES").split("\n")
-    adjust_resource_links(output_files)
+    for file in output_files:
+        move_quarto_resources_to_public("src/content")
+        adjust_resource_links(file)
+        if file == "src/content/index.md":
+            dst = "src/pages/index.md"
+            if os.path.exists(dst):
+                os.remove(dst)
+            shutil.move(file, "src/pages")

@@ -1,0 +1,6 @@
+node:
+  package_manager: "pnpm"
+
+analysis_dir: "analysis"
+resource_dir: "resources"
+shinyapp_dir: "shinyapps"

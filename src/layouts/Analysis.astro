@@ -13,6 +13,7 @@ export interface Props {
 }
 
 const { entry, graphData } = Astro.props;
+
 const { Content, headings } = await entry.render();
 const metadataEntries = [
   {

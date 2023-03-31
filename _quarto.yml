@@ -5,6 +5,7 @@ project:
   render:
     - analysis/**/*.qmd
     - data/**/*.qmd
+    - index.qmd
 
 freeze: auto
 

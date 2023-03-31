@@ -1,0 +1,21 @@
+---
+title: "Welcome to the Astrodown Playground"
+authors: ["Qiushi Yan"]
+format:
+    hugo:
+        toc: false
+---
+
+## Background
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, rem ad. Quam esse voluptas vitae tempora commodi eum eaque pariatur vero. Suscipit voluptas praesentium nisi nam laboriosam quod, commodi sint, vitae dolorum quibusdam cupiditate eaque quae, dicta adipisci repudiandae. Consequuntur laboriosam iusto enim, cum minima nam ipsam.
+
+
+```{r}
+#| message: false
+#| echo: false
+library(plotly)
+fig <- plot_ly(midwest, x = ~percollege, color = ~state, type = "box")
+fig
+```
+
