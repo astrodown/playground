@@ -32,7 +32,6 @@ const config: DataPreviewConfig = {
   title: entry.data.title,
   description: entry.data.description,
 };
-
 if (entry.data.previewURL) {
   try {
     const res = await fetch(entry.data.previewURL);
@@ -55,11 +54,12 @@ if (entry.data.previewURL) {
       <div slot="sidebar">
         <h2>{entry.data.title}</h2>
         {
-          dataParseError ? (
-            <Alert>{dataParseError}</Alert>
-          ) : (
-            <DataPreview config={config} client:only="load" />
-          )
+          entry.data.previewURL &&
+            (dataParseError ? (
+              <Alert>{dataParseError}</Alert>
+            ) : (
+              <DataPreview config={config} client:only="load" />
+            ))
         }
         {
           entry.data.exports.length > 0 && (
