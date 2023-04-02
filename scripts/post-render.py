@@ -29,11 +29,12 @@ if os.getenv("QUARTO_PROJECT_OUTPUT_FILES") is not None:
     for file in output_files:
         adjust_resource_links(file)
         if file == f"{content_dir}/index.md":
-            html_dir = Path("index_files")
             move_quarto_resources_to_public(content_dir)
-            add_html_dep(html_dir / "libs")
             dst = "src/pages/index.md"
             if os.path.exists(dst):
                 os.remove(dst)
             shutil.move(file, "src/pages")
-            shutil.rmtree(html_dir)
+            html_dir = Path("index_files")
+            if html_dir.exists():
+                add_html_dep(html_dir / "libs")
+                shutil.rmtree(html_dir)
