@@ -2,5 +2,6 @@ node:
   package_manager: "pnpm"
 
 analysis_dir: "analysis"
-resource_dir: "resources"
-shinyapp_dir: "shinyapps"
+model_dir: "models"
+data_dir: "data"
+shiny_dir: "shinyapps"

@@ -50,7 +50,7 @@ sns.relplot(
 )
 ```
 
-    <seaborn.axisgrid.FacetGrid at 0x14cc54250>
+    <seaborn.axisgrid.FacetGrid at 0x14f409970>
 
 ![](/analysis/python/py_files/figure-commonmark/cell-3-output-2.png)
 

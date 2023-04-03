@@ -26,3 +26,6 @@ notebooks
 .ipynb_checkpoints/
 __pycache__/
 *.pyc
+
+# Local Netlify folder
+.netlify
