@@ -1,0 +1,16 @@
+---
+title: diamonds
+id: diamonds-data
+label: diamonds data
+---
+
+``` r
+library(ggplot2)
+
+diamonds |>
+    dplyr::slice_sample(n = 1000) |>
+    ggplot() +
+    geom_point(aes(x = carat, y = price, color = cut))
+```
+
+![](/data/diamonds_files/figure-commonmark/unnamed-chunk-1-1.png)
