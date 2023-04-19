@@ -21,10 +21,12 @@
     "@nanostores/react": "^0.4.1",
     "algoliasearch": "^4.14.3",
     "astro": "^2.0.6",
+    "autoprefixer": "^10.4.14",
     "clsx": "^1.2.1",
     "csvtojson": "^2.0.10",
     "daisyui": "^2.51.5",
     "nanostores": "^0.7.3",
+    "postcss": "^8.4.22",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "tailwindcss": "^3.3.0"
