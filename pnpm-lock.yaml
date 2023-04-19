@@ -4,9 +4,6 @@ dependencies:
   '@astrodown/graph':
     specifier: ^0.0.5
     version: 0.0.5(react-dom@18.2.0)(react@18.2.0)
-  '@astrodown/schema':
-    specifier: '*'
-    version: 0.0.2
   '@astrojs/react':
     specifier: ^2.0.2
     version: 2.0.2(@types/react-dom@18.0.10)(@types/react@18.0.27)(react-dom@18.2.0)(react@18.2.0)
@@ -450,12 +447,6 @@ packages:
       '@heroicons/react': 2.0.16(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@astrodown/schema@0.0.2:
-    resolution: {integrity: sha512-PxYpsOTdrKQNudR2ceeBT0MKbTafbWVoA4fAtVNaLB6FLH9UVBHd2Tpno+/CxttRTsN5cdNl4iRyCUtsNqeEsw==}
-    dependencies:
-      zod: 3.20.6
     dev: false
 
   /@astrodown/schema@0.0.3:

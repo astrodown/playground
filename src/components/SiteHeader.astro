@@ -100,7 +100,7 @@ const data = (await getCollection("data")).map((entry) => ({
   </div>
   <div class="navbar-end">
     <a>
-      <Modal client:load className="bg-black max-w-4xl">
+      <Modal client:load className="bg-black max-w-4xl" network>
         <Network data={graphData} />
       </Modal>
     </a>

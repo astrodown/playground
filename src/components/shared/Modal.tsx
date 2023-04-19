@@ -7,6 +7,7 @@ interface Props {
 	title?: string;
 	children: React.ReactNode;
 	className?: string;
+	network?: boolean;
 }
 
 const Body = ({ children }: { children: React.ReactNode }) => {
@@ -17,6 +18,7 @@ const Modal = ({
 	openText,
 	children,
 	title,
+	network,
 	className = "sm:max-w-3xl",
 }: Props) => {
 	const [showModal, setShowModal] = useState(false);
@@ -64,8 +66,21 @@ const Modal = ({
 										>
 											<div className="flex items-center">
 												{title && (
-													<h2 className='font-semibold text-xl'>{title}</h2>
+													<h3 className='tracking-tight text-gray-50'>
+														{title}
+													</h3>
 												)}
+												{network && (
+													<h3 className='tracking-tight text-gray-50 text-sm px-4'>
+														A website network with circles representing{" "}
+														<span className="text-[#a991f7]">analysis </span>
+														and <span className="text-[#3b82f6]">data</span>,
+														connections are defined by the `relationships`
+														frontmatter, focal points are{" "}
+														<span className="text-[#eab308]">highlighted</span>.
+													</h3>
+												)}
+
 												<div className='ml-auto'>
 													<button onClick={() => setShowModal(false)}>
 														<XMarkIcon className='w-6 h-6' />

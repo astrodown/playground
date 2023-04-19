@@ -50,7 +50,7 @@ export const getEdges = (
 	entry: CollectionEntry<"analysis"> | CollectionEntry<"data">,
 	highlightId?: string,
 ): IUserEdge[] => {
-	const { id, label, type } = getMetadata(entry);
+	const { id, type } = getMetadata(entry);
 	const relationships = entry.data.relationships;
 	const color = highlightId === id ? colorConfig.accent : colorConfig[type];
 	if (typeof relationships === "string") {
