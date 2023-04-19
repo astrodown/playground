@@ -4,11 +4,13 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: "Roboto, sans-serif;",
+				sans: "Inter, sans-serif;",
 				mono: "Fira Code, monospace;",
-				serif: "'Roboto Slab', serif;",
 			},
 		},
 	},
-	plugins: [require("@tailwindcss/typography")],
+	plugins: [require("@tailwindcss/typography"), require("daisyui")],
+	daisyui: {
+		themes: ["corporate"],
+	},
 };

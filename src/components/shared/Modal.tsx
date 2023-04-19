@@ -23,10 +23,7 @@ const Modal = ({
 	return (
 		<>
 			<button
-				className={clsx("outline-none focus:outline-none mr-1 mb-1", {
-					"border border-blue-600 font-bold p-3 rounded shadow hover:shadow-lg":
-						openText,
-				})}
+				className="btn btn-outline"
 				type="button"
 				onClick={() => setShowModal(true)}
 			>
@@ -62,14 +59,12 @@ const Modal = ({
 										<Dialog.Panel
 											className={clsx(
 												className,
-												"relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 text-left shadow-xl transition-all sm:my-4 sm:w-full sm:p-4",
+												"relative transform overflow-hidden rounded-lg  px-4 pb-4 text-left shadow-xl transition-all sm:my-4 sm:w-full sm:p-4 bg-base-100",
 											)}
 										>
 											<div className="flex items-center">
 												{title && (
-													<h2 className='font-serif font-semibold text-xl'>
-														{title}
-													</h2>
+													<h2 className='font-semibold text-xl'>{title}</h2>
 												)}
 												<div className='ml-auto'>
 													<button onClick={() => setShowModal(false)}>
